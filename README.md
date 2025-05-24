@@ -1,1 +1,1 @@
-# study
+# mini_projects
