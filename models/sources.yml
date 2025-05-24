@@ -1,7 +1,7 @@
 version: 2
 sources:
   - name : jaffle_shop
-    description : this is replica of the Postgres ? database used by our app (bukannya Snowflake?)
+    description : this is replica of the Snowflake database used by our app
     database : raw
     schema: jaffle_shop
     tables :
@@ -9,3 +9,10 @@ sources:
         description: one record per customer.
       - name : orders
         description: one record per order. Includes cancelled and deleted orders.
+  - name : stripe
+    description : this is replica of the Snowflake database used by our app 
+    database : raw
+    schema: stripe
+    tables :
+      - name : payment
+        description: one record per order.
