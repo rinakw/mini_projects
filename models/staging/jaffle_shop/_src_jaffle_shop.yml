@@ -9,10 +9,11 @@ sources:
         description: one record per customer.
       - name : orders
         description: one record per order. Includes cancelled and deleted orders.
-  - name : stripe
-    description : this is replica of the Snowflake database used by our app 
-    database : raw
-    schema: stripe
-    tables :
-      - name : payment
-        description: one record per order.
+        freshness: 
+          error_after:
+            count: 2
+            period: day
+          warn_after:
+            count: 6
+            period: hour
+        loaded_at_field: _etl_loaded_at
