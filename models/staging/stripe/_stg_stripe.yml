@@ -1,0 +1,17 @@
+version: 2
+models :
+  - name: stg_stripe__payments
+    description: This model cleans up payment data
+    columns:
+      - name: payment_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Primary Key of Order related to the payment
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_jaffle_shop__orders')
+              field: order_id
