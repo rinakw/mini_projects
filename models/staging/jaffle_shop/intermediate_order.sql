@@ -20,7 +20,7 @@ payments as (
 completed_payment as (
     select 
         order_id , 
-        max(created) as payment_finalized_date, 
+        max(created_at) as payment_finalized_date, 
         sum(amount) as total_amount_paid
     from payments
     where status <> 'fail'
@@ -41,6 +41,6 @@ paid_orders as (
     left join completed_payment 
         on orders.order_id = completed_payment.order_id
     left join customers using (customer_id)
-),
+)
 
 select * from paid_orders

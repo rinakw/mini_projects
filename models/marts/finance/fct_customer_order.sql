@@ -12,7 +12,7 @@ final as(
         --new vs returning customer
         case 
             when (
-                rank over(
+                rank() over(
                     partition by customer_id
                     order by order_placed_at, order_id
                 ) = 1
