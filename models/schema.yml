@@ -13,4 +13,6 @@ models:
 
   - name: fct_orders
     description: fact orders. one record for each transaction (order)
-
+  
+  - name: fct_customer_orders
+    description: fact customer orders
