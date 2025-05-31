@@ -1,0 +1,30 @@
+version: 2
+models:
+  - name: dim_customers
+    description: one record per customer
+    columns:
+      - name: customer_id
+        description: primary key
+        tests:
+          - unique
+          - not_null
+      - name: first_order_date
+        description: NULL when a customer has not yet placed an order.
+  - name: fct_orders
+    description: fact orders. one record for each transaction (order)
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+      - name: amount
+        description: dollars spent per order
+        tests:
+          - average_dollars_spent_greater_than_one :
+              group_by_column: "customer_id"
+          - dbt_expectations.expect_column_values_to_be_between :
+              #this will perform what the dbt_utils.expression-is-true test does!
+              min_value : 0
+              row_condition : "order_id is not null"
+              strictly : false
+  - name: fct_customer_orders
+    description: fact customer orders
