@@ -1,1 +1,0 @@
-{{ drop_stale_obj('analytics', 'dbt_rkurniawati', 'INT_ORDERS__PIVOTED')}}
