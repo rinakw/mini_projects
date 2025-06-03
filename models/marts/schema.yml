@@ -12,8 +12,10 @@ models:
         description: NULL when a customer has not yet placed an order.
   - name: fct_orders
     description: fact orders. one record for each transaction (order)
+    access: protected
     latest_version: 1
     config:
+      group: finance
       contract:
         enforced: true
     columns:
