@@ -1,0 +1,9 @@
+groups:
+  - name: finance
+    owner:
+      name: firstname1 lastname1
+      email: firstLastname1@gmail.com
+  - name: product
+    owner:
+      name: firstname2 lastname2
+      email: firstLastname2@gmail.com
